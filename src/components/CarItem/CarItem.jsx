@@ -14,6 +14,7 @@ import {
   Span,
   Price,
   InfoContainer,
+  Delimiter,
   Button,
 } from './CarItem.styled';
 
@@ -26,9 +27,20 @@ export const CarCard = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
 
-  const addressParts = car.address.split(', ');
-  const city = addressParts[0];
-  const country = addressParts[1];
+  const {
+    address,
+    make,
+    model,
+    year,
+    img,
+    rentalPrice,
+    rentalCompany,
+    type,
+    id,
+  } = car;
+
+  const addressParts = address.split(', ');
+  const [city, country] = addressParts;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -52,11 +64,14 @@ export const CarCard = ({
   return (
     <CardContainer>
       {imageLoadError ? (
-        <AlterImage src={reserved} alt={`${car.make} ${car.model}`} />
+        <AlterImage
+          src={reserved}
+          alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
+        />
       ) : (
         <Image
-          src={car.img}
-          alt={`${car.make} ${car.model}`}
+          src={img ?? 'Unknown'}
+          alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
           onError={handleImageError}
         />
       )}
@@ -76,14 +91,22 @@ export const CarCard = ({
       <CentralInfo>
         <TitleContainer>
           <Title>
-            {car.make} <Span>{car.model}</Span>, {car.year}
+            {make ?? 'Unknown'} <Span>{model ?? 'Unknown'}</Span>,{' '}
+            {year ?? 'Unknown'}
           </Title>
-          <Price>{car.rentalPrice}</Price>
+          <Price>{rentalPrice ?? 'Unknown'}</Price>
         </TitleContainer>
         <InfoContainer>
           <p>
-            {city} | {country} | {car.rentalCompany} | {car.type} | {car.make} |{' '}
-            {car.id}
+            {city ?? 'Unknown'} <Delimiter>|</Delimiter> {country ?? 'Unknown'}
+            <Delimiter>|</Delimiter>
+            {rentalCompany ?? 'Unknown'}
+            <Delimiter>|</Delimiter>
+            {type ?? 'Unknown'}
+            <Delimiter>|</Delimiter>
+            {make ?? 'Unknown'}
+            <Delimiter>|</Delimiter>
+            {id ?? 'Unknown'}
           </p>
         </InfoContainer>
       </CentralInfo>

@@ -15,28 +15,44 @@ import {
   DescriptionText,
   SecondaryTitle,
   ListConditions,
-  ItemContidions,
+  ItemConditions,
   Number,
   RentLink,
+  Delimiter,
   DescriptContainer,
   ConditionContainer,
 } from './Modal.styled';
 
-export function formatNumberWithCommas(number) {
+export const formatNumberWithCommas = number => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
+};
 
 export const DescriptionModal = ({ isOpen, closeModal, car }) => {
-  const addressParts = car.address.split(', ');
-  const city = addressParts[0];
-  const country = addressParts[1];
-  const accessories = car.accessories.join(' | ');
-  const functionalities = car.functionalities.join(' | ');
-  const rentalConditionsArray = car.rentalConditions.split('\n');
+  const {
+    address,
+    accessories,
+    functionalities,
+    rentalConditions,
+    make,
+    model,
+    year,
+    id,
+    type,
+    fuelConsumption,
+    engineSize,
+    description,
+    mileage,
+    rentalPrice,
+    img,
+  } = car;
+
+  const addressParts = address.split(', ');
+  const [city, country] = addressParts;
+
+  const rentalConditionsArray = rentalConditions.split('\n');
 
   const ageRegex = /\d+/;
-
-  const ageMatch = car.rentalConditions.match(ageRegex);
+  const ageMatch = rentalConditions.match(ageRegex);
   const minimumAge = ageMatch ? ageMatch[0] : null;
 
   const closeModalOnOverlayClick = e => {
@@ -66,25 +82,35 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
             <GrClose style={{ width: '24', height: '24' }} />
           </BtnClose>
           <Image
-            src={car.img}
-            alt={`${car.make} ${car.model}`}
+            src={img}
+            alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
             onError={handleImageError}
           />
           <Title>
-            {car.make} <Span>{car.model}</Span>, {car.year}
+            {make ?? 'Unknown'} <Span>{model ?? 'Unknown'}</Span>,{' '}
+            {year ?? 'Unknown'}
           </Title>
           <InfoContainer>
             <Text>
-              {city} | {country} | id: {car.id} | year: {car.year} | type:{' '}
-              {car.type} | Fuel Consumption: {car.fuelConsumption} | Engine
-              Size: {car.engineSize}
+              {city ?? 'Unknown'}
+              <Delimiter>|</Delimiter>
+              {country ?? 'Unknown'} <Delimiter>|</Delimiter> id:{' '}
+              {id ?? 'Unknown'}
+              <Delimiter>|</Delimiter>year: {year ?? 'Unknown'}{' '}
+              <Delimiter>|</Delimiter> type:
+              {type ?? 'Unknown'}
+              <Delimiter>|</Delimiter>Fuel Consumption:
+              {fuelConsumption ?? 'Unknown'}
+              <Delimiter>|</Delimiter>Engine Size: {engineSize ?? 'Unknown'}
             </Text>
-            <DescriptionText>{car.description}</DescriptionText>
+            <DescriptionText>{description ?? 'Unknown'}</DescriptionText>
           </InfoContainer>
           <DescriptContainer>
             <SecondaryTitle>Accessories and functionalities:</SecondaryTitle>
             <Text>
-              {accessories} | {functionalities}
+              {accessories ?? 'Unknown'}
+              <Delimiter>|</Delimiter>
+              {functionalities ?? 'Unknown'}
             </Text>
           </DescriptContainer>
           <ConditionContainer>
@@ -93,23 +119,25 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
               {rentalConditionsArray.map((condition, index) => {
                 if (condition.includes(minimumAge)) {
                   return (
-                    <ItemContidions key={index}>
+                    <ItemConditions key={index}>
                       Minimum age: <Number>{minimumAge}</Number>
-                    </ItemContidions>
+                    </ItemConditions>
                   );
                 }
-                return <ItemContidions key={index}>{condition}</ItemContidions>;
+                return <ItemConditions key={index}>{condition}</ItemConditions>;
               })}
-              <ItemContidions>
-                Mileage: <Number>{formatNumberWithCommas(car.mileage)}</Number>
-              </ItemContidions>
-              <ItemContidions>
-                Price: <Number>{car.rentalPrice}</Number>
-              </ItemContidions>
+              <ItemConditions>
+                Mileage:{' '}
+                <Number>{formatNumberWithCommas(mileage ?? 'Unknown')}</Number>
+              </ItemConditions>
+              <ItemConditions>
+                Price: <Number>{rentalPrice ?? 'Unknown'}</Number>
+              </ItemConditions>
             </ListConditions>
           </ConditionContainer>
           <RentLink
             onClick={() => (window.location.href = 'tel:+380730000000')}
+            title="Should call to rent?"
           >
             Rental car
           </RentLink>

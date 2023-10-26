@@ -16,7 +16,7 @@ export const ModalContainer = styled.div`
   max-width: 540px;
   max-height: 750px;
   z-index: 3;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const Overlay = styled.div`
@@ -34,14 +34,13 @@ export const Overlay = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 248px;
   object-fit: cover;
   margin: 0 auto;
   border-radius: 14px;
 `;
 
 export const Title = styled.h2`
-  font-size: 18px;
+  font-size: clamp(12px, 2vw, 18px);
 `;
 
 export const Span = styled.span`
@@ -54,11 +53,11 @@ export const InfoContainer = styled.div`
 
 export const SecondaryTitle = styled.h3`
   font-weight: 500;
-  font-size: 14px;
+  font-size: clamp(10px, 2vw, 14px);
   color: var(--text);
 `;
 export const Text = styled.p`
-  font-size: 12px;
+  font-size: clamp(10px, 2vw, 12px);
 `;
 
 export const DescriptContainer = styled.div`
@@ -76,7 +75,7 @@ export const ConditionContainer = styled.div`
 export const DescriptionText = styled.p`
   margin-top: 14px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: clamp(10px, 2vw, 14px);
   color: var(--text);
 `;
 
@@ -86,20 +85,20 @@ export const ListConditions = styled.ul`
   gap: 8px;
 `;
 
-export const ItemContidions = styled.li`
+export const ItemConditions = styled.li`
   display: inline-block;
   padding: 7px 14px;
   font-family: var(--second-font);
   background-color: var(--list-bg);
   border-radius: 35px;
   color: var(--modal-text);
-  font-size: 12px;
+  font-size: clamp(10px, 2vw, 12px);
 `;
 
 export const Number = styled.span`
   color: var(--blue);
   font-weight: 600;
-  font-size: 12px;
+  font-size: clamp(10px, 2vw, 12px);
 `;
 
 export const BtnClose = styled.button`
@@ -111,12 +110,17 @@ export const BtnClose = styled.button`
   padding: 0;
 `;
 
+export const Delimiter = styled.span`
+  padding: 0 5px;
+  color: var(--transp80);
+`;
+
 export const RentLink = styled.a`
   border: none;
   color: var(--white);
   background-color: var(--blue);
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   width: 68px;
   padding: 12px 50px;
   border-radius: 12px;

@@ -17,7 +17,7 @@ export const CarList = ({
       <CardContainer>
         {cars.map(car => (
           <CarCard
-            key={car.id}
+            key={car.id ?? 'Unknown'}
             car={car}
             isFavorite={favoriteCars.some(
               favoriteCar => favoriteCar.id === car.id

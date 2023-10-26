@@ -84,6 +84,11 @@ export const InfoContainer = styled.div`
   }
 `;
 
+export const Delimiter = styled.span`
+  padding: 0 5px;
+  color: var(--transp80);
+`;
+
 export const Button = styled.button`
   border: none;
   color: var(--white);
