@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/vehicle-description/static/js/main.41879bbb.js",
-    "static/js/87.62401156.chunk.js": "/vehicle-description/static/js/87.62401156.chunk.js",
-    "static/js/595.fe5742aa.chunk.js": "/vehicle-description/static/js/595.fe5742aa.chunk.js",
-    "static/js/587.41f7723c.chunk.js": "/vehicle-description/static/js/587.41f7723c.chunk.js",
+    "main.js": "/vehicle-description/static/js/main.8de73e29.js",
+    "static/js/87.47d44c11.chunk.js": "/vehicle-description/static/js/87.47d44c11.chunk.js",
+    "static/js/303.05c5d98b.chunk.js": "/vehicle-description/static/js/303.05c5d98b.chunk.js",
+    "static/js/587.de4de9ed.chunk.js": "/vehicle-description/static/js/587.de4de9ed.chunk.js",
     "static/js/85.75cac27e.chunk.js": "/vehicle-description/static/js/85.75cac27e.chunk.js",
-    "static/js/430.e076b2d6.chunk.js": "/vehicle-description/static/js/430.e076b2d6.chunk.js",
+    "static/js/689.127c0bda.chunk.js": "/vehicle-description/static/js/689.127c0bda.chunk.js",
     "static/media/hero_img.png": "/vehicle-description/static/media/hero_img.c5d2914d15a81f126780.png",
     "static/media/Montserrat-SemiBold.ttf": "/vehicle-description/static/media/Montserrat-SemiBold.93b37a465fc4ec0d0415.ttf",
     "static/media/Montserrat-Regular.ttf": "/vehicle-description/static/media/Montserrat-Regular.24785cc015b27a3e964b.ttf",
@@ -16,14 +16,14 @@
     "static/media/modality.png": "/vehicle-description/static/media/modality.d7eb864a9d7a366bf09d.png",
     "static/media/reserved.png": "/vehicle-description/static/media/reserved.549410f3d04c7f1f348d.png",
     "index.html": "/vehicle-description/index.html",
-    "main.41879bbb.js.map": "/vehicle-description/static/js/main.41879bbb.js.map",
-    "87.62401156.chunk.js.map": "/vehicle-description/static/js/87.62401156.chunk.js.map",
-    "595.fe5742aa.chunk.js.map": "/vehicle-description/static/js/595.fe5742aa.chunk.js.map",
-    "587.41f7723c.chunk.js.map": "/vehicle-description/static/js/587.41f7723c.chunk.js.map",
+    "main.8de73e29.js.map": "/vehicle-description/static/js/main.8de73e29.js.map",
+    "87.47d44c11.chunk.js.map": "/vehicle-description/static/js/87.47d44c11.chunk.js.map",
+    "303.05c5d98b.chunk.js.map": "/vehicle-description/static/js/303.05c5d98b.chunk.js.map",
+    "587.de4de9ed.chunk.js.map": "/vehicle-description/static/js/587.de4de9ed.chunk.js.map",
     "85.75cac27e.chunk.js.map": "/vehicle-description/static/js/85.75cac27e.chunk.js.map",
-    "430.e076b2d6.chunk.js.map": "/vehicle-description/static/js/430.e076b2d6.chunk.js.map"
+    "689.127c0bda.chunk.js.map": "/vehicle-description/static/js/689.127c0bda.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.41879bbb.js"
+    "static/js/main.8de73e29.js"
   ]
 }
