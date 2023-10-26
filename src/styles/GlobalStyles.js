@@ -1,10 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 // import modernNormalize from "modern-normalize";
-import monroRegular from "styles/fonts/Manrope-Regular.ttf";
-import monroMedium from "styles/fonts/Manrope-Medium.ttf";
-import monroSemi from "styles/fonts/Manrope-SemiBold.ttf";
-import montRegular from "styles/fonts/Montserrat-Regular.ttf";
-import montSemi from "styles/fonts/Montserrat-SemiBold.ttf";
+import monroRegular from 'styles/fonts/Manrope-Regular.ttf';
+import monroMedium from 'styles/fonts/Manrope-Medium.ttf';
+import monroSemi from 'styles/fonts/Manrope-SemiBold.ttf';
+import montRegular from 'styles/fonts/Montserrat-Regular.ttf';
+import montSemi from 'styles/fonts/Montserrat-SemiBold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -25,10 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     --white: #ffffff;
     --blue: #3470FF;
     --btn-hover: #0B44CD;
-    --filter-bg: #F7F7FB;
+    --filter-bg: rgba(50, 50, 50, 0.1);
     --text: #121417;
     --modal-text: #363535;
-    --orange: #ffa500;
+    --orange: #FFAC1C;
     --red: #ff0000;
     --yellow: #FFFFCC;
     --list-bg: #f9f9f9;
@@ -101,6 +101,16 @@ button {
 ::-webkit-scrollbar {
   scrollbar-width: thin; 
 }
+
+input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  }
 
 
 `;

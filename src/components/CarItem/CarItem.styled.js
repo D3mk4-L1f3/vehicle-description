@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CardContainer = styled.li`
   display: flex;
@@ -9,7 +9,7 @@ export const CardContainer = styled.li`
   width: 264px;
   padding: 15px;
   border-radius: 10px;
-  background-color: rgba(50, 50, 50, 0.1);
+  background-color: var(--filter-bg);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 `;

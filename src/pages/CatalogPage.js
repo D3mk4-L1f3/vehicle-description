@@ -14,6 +14,7 @@ import {
   loadDataFromLocalStorage,
   saveDataToLocalStorage,
 } from '../localStorage/localStorage';
+import { Filter } from 'components/Filter/Filter';
 
 import CarList from '../components/CarList/CarList';
 
@@ -25,6 +26,7 @@ function CatalogPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(false);
+  const [filteredCars, setFilteredCars] = useState([]);
 
   useEffect(() => {
     const savedFavorites = loadDataFromLocalStorage('favorites');
@@ -70,8 +72,9 @@ function CatalogPage() {
 
   return (
     <section>
+      <Filter cars={cars} setFilteredCars={setFilteredCars} />
       <CarList
-        cars={cars}
+        cars={filteredCars.length > 0 ? filteredCars : cars}
         favoriteCars={favoriteCars}
         isLoading={isLoading}
         handleToggleFavorite={handleToggleFavorite}
