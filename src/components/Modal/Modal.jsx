@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { GrClose } from 'react-icons/gr';
 import res from 'styles/image/modality.png';
@@ -7,6 +7,7 @@ import {
   Overlay,
   ModalContainer,
   BtnClose,
+  AlterImage,
   Image,
   Title,
   Span,
@@ -28,6 +29,7 @@ export const formatNumberWithCommas = number => {
 };
 
 export const DescriptionModal = ({ isOpen, closeModal, car }) => {
+  const [imageLoadError, setImageLoadError] = useState(false);
   const {
     address,
     accessories,
@@ -62,7 +64,7 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
   };
 
   const handleImageError = e => {
-    e.target.src = res;
+    setImageLoadError(true);
     toast.error('Downloaded images were crushed, try later :(');
   };
 
@@ -81,11 +83,18 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
           <BtnClose onClick={closeModal}>
             <GrClose style={{ width: '24', height: '24' }} />
           </BtnClose>
-          <Image
-            src={img}
-            alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
-            onError={handleImageError}
-          />
+          {imageLoadError ? (
+            <AlterImage
+              src={res}
+              alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
+            />
+          ) : (
+            <Image
+              src={img ?? 'Unknown'}
+              alt={`${make ?? 'Unknown'} ${model ?? 'Unknown'}`}
+              onError={handleImageError}
+            />
+          )}
           <Title>
             {make ?? 'Unknown'} <Span>{model ?? 'Unknown'}</Span>,{' '}
             {year ?? 'Unknown'}

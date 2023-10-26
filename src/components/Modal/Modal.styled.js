@@ -32,6 +32,12 @@ export const Overlay = styled.div`
   z-index: 2;
 `;
 
+export const AlterImage = styled.img`
+  /* width: 264px;
+  height: 268px; */
+  object-fit: contain;
+`;
+
 export const Image = styled.img`
   width: 100%;
   object-fit: cover;
