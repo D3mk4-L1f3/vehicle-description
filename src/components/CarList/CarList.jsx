@@ -1,15 +1,17 @@
 import React from 'react';
-import CarCard from '../CarItem/CarItem';
-import { CatalogContainer, CardContainer, LoadMoreBtn } from './CarList.styled';
+import { CarCard } from '../CarItem/CarItem';
 import { Loader } from 'components/Loader/Loader';
+import { CatalogContainer, CardContainer, LoadMoreBtn } from './CarList.styled';
 
-function CarList({
+export const CarList = ({
   cars,
   favoriteCars,
   isLoading,
   handleToggleFavorite,
   handleLoadMoreClick,
-}) {
+}) => {
+  const shouldShowLoadMore = cars.length >= 12;
+
   return (
     <CatalogContainer>
       <CardContainer>
@@ -25,7 +27,7 @@ function CarList({
           />
         ))}
       </CardContainer>
-      {!isLoading && (
+      {shouldShowLoadMore && !isLoading && (
         <LoadMoreBtn type="button" onClick={handleLoadMoreClick}>
           Load more
         </LoadMoreBtn>
@@ -33,6 +35,4 @@ function CarList({
       {isLoading && <Loader />}
     </CatalogContainer>
   );
-}
-
-export default CarList;
+};

@@ -1,13 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import CarCard from '../CarItem/CarItem';
-import { selectFavoriteCars } from 'redux/selectors';
-import { CatalogContainer, CardContainer } from '../CarList/CarList.styled';
+import React, { useEffect, useState } from 'react';
+import { CarCard } from '../CarItem/CarItem';
 import garage from 'styles/image/pngwing.com (4).png';
 import { EmptyParkingContainer } from './FavoriteCarList.styled';
+import { CatalogContainer, CardContainer } from '../CarList/CarList.styled';
+import { loadDataFromLocalStorage } from 'localStorage/localStorage';
 
-function FavoriteCarList() {
-  const favoriteCars = useSelector(selectFavoriteCars);
+export const FavoriteCarList = () => {
+  const [favoriteCars, setFavoriteCars] = useState([]);
+
+  useEffect(() => {
+    const favoriteCarsFromLocalStorage = loadDataFromLocalStorage('favorites');
+
+    if (favoriteCarsFromLocalStorage) {
+      setFavoriteCars(favoriteCarsFromLocalStorage);
+    }
+  }, []);
 
   return (
     <CatalogContainer>
@@ -20,7 +27,7 @@ function FavoriteCarList() {
       ) : (
         <EmptyParkingContainer>
           <p>
-            Your favorite list is empty, add some vehicle from{' '}
+            Your favorite list is empty, add some vehicles from{' '}
             <span>Catalog</span>
           </p>
           <img src={garage} alt="garage" />
@@ -28,6 +35,4 @@ function FavoriteCarList() {
       )}
     </CatalogContainer>
   );
-}
-
-export default FavoriteCarList;
+};

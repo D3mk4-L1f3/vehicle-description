@@ -7,8 +7,8 @@ export const Loader = () => (
     color="#808080"
     wrapperStyle={{
       position: 'absolute',
-      top: '25%',
-      left: 'calc(50% - 50px)',
+      top: '50%',
+      left: '50%',
     }}
     visible={true}
     ariaLabel="three-circles-rotating"

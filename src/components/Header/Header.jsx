@@ -1,14 +1,13 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-
-import { HeaderContainer, Nav, NavList, LinkStyled } from "./Header.styled";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { HeaderContainer, Nav, NavList, LinkStyled } from './Header.styled';
 
 export const Header = () => {
   const location = useLocation();
 
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === '/';
 
-  const isActive = (path) => {
+  const isActive = path => {
     return location.pathname === path;
   };
   return (
@@ -16,7 +15,7 @@ export const Header = () => {
       <Nav>
         <NavList>
           <li>
-            <LinkStyled to="/" className={isActive("/") ? "active" : ""}>
+            <LinkStyled to="/" className={isActive('/') ? 'active' : ''}>
               Home
             </LinkStyled>
           </li>
@@ -24,7 +23,7 @@ export const Header = () => {
           <li>
             <LinkStyled
               to="/catalog"
-              className={isActive("/catalog") ? "active" : ""}
+              className={isActive('/catalog') ? 'active' : ''}
             >
               Catalog
             </LinkStyled>
@@ -32,7 +31,7 @@ export const Header = () => {
           <li>
             <LinkStyled
               to="/favorites"
-              className={isActive("/favorites") ? "active" : ""}
+              className={isActive('/favorites') ? 'active' : ''}
             >
               Favorites
             </LinkStyled>

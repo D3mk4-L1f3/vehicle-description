@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import {
   CustomValSelect,
   BtnForm,
@@ -8,18 +9,6 @@ import {
   OdoTo,
   OdoInputContainer,
 } from './Filter.styled';
-import { toast } from 'react-toastify';
-
-const optionsToast = {
-  position: 'top-center',
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'dark',
-};
 
 export const Filter = ({ cars, setFilteredCars }) => {
   const carsMakeArr = cars.map(car => car.make);
@@ -42,6 +31,10 @@ export const Filter = ({ cars, setFilteredCars }) => {
   const [mileageFrom, setMileageFrom] = useState('');
   const [mileageTo, setMileageTo] = useState('');
 
+  const showToast = (message, type) => {
+    toast[type](message);
+  };
+
   const search = () => {
     let filterCars = [...cars];
 
@@ -51,7 +44,7 @@ export const Filter = ({ cars, setFilteredCars }) => {
       mileageFrom === '' &&
       mileageTo === ''
     ) {
-      toast.info('Please set params for search ', optionsToast);
+      showToast('Fill all search params for better results!', 'warning');
       setFilteredCars([]);
       return;
     }
@@ -78,7 +71,7 @@ export const Filter = ({ cars, setFilteredCars }) => {
     }
 
     if (filterCars.length === 0) {
-      toast.info('No results for these search params', optionsToast);
+      toast.error('No results according to your params :(');
     }
     setFilteredCars(filterCars);
   };
@@ -89,6 +82,7 @@ export const Filter = ({ cars, setFilteredCars }) => {
     setSelectedPrice(null);
     setMileageFrom('');
     setMileageTo('');
+    toast.info('Search params were reset, you can try again :)');
   };
 
   return (

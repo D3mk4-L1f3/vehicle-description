@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -14,7 +14,7 @@ export const ModalContainer = styled.div`
   padding: 40px;
   min-width: 250px;
   max-width: 540px;
-  height: 750px;
+  max-height: 750px;
   z-index: 3;
   overflow-y: auto;
 `;
@@ -26,6 +26,7 @@ export const Overlay = styled.div`
   height: 100%;
   background-color: var(--transp50);
   position: fixed;
+  padding: 20px;
   top: 0;
   left: 0;
   z-index: 2;

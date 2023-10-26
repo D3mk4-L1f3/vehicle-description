@@ -1,6 +1,5 @@
-import React from "react";
-
-import FavoriteCarList from "../components/FavoriteCarList/FavoriteCarList";
+import React from 'react';
+import { FavoriteCarList } from 'components/FavoriteCarList/FavoriteCarList';
 
 function FavoritesPage() {
   return (

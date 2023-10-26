@@ -1,6 +1,5 @@
-import React from "react";
-
-import { Hero } from "../components/Hero/Hero";
+import React from 'react';
+import { Hero } from 'components/Hero/Hero';
 
 function HomePage() {
   return (

@@ -1,7 +1,4 @@
-import React from "react";
-
-// import mainHeroImg from "styles/image/hero_img.png";
-
+import React from 'react';
 import {
   HeroContainer,
   HeroWrapper,
@@ -9,7 +6,7 @@ import {
   CompanyName,
   DescrContainer,
   CatalogSpan,
-} from "./Hero.styled";
+} from './Hero.styled';
 
 export const Hero = () => {
   return (
@@ -32,7 +29,7 @@ export const Hero = () => {
           </p>
         </DescrContainer>
         <p>
-          For starting, select your favorite car at{" "}
+          For starting, select your favorite car at{' '}
           <CatalogSpan>Catalog</CatalogSpan>
         </p>
       </HeroWrapper>

@@ -1,22 +1,18 @@
+import { fetchCars } from 'redux/operations';
+import { Filter } from 'components/Filter/Filter';
 import React, { useEffect, useState } from 'react';
+import { CarList } from 'components/CarList/CarList';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { fetchCars } from '../redux/operations';
-
-import { selectCars, selectFavoriteCars } from '../redux/selectors';
+import { selectCars, selectFavoriteCars } from 'redux/selectors';
 import {
   setFavorites,
   addToFavorites,
   removeFromFavorites,
-} from '../redux/carSlice';
-
+} from 'redux/carSlice';
 import {
   loadDataFromLocalStorage,
   saveDataToLocalStorage,
-} from '../localStorage/localStorage';
-import { Filter } from 'components/Filter/Filter';
-
-import CarList from '../components/CarList/CarList';
+} from 'localStorage/localStorage';
 
 function CatalogPage() {
   const dispatch = useDispatch();

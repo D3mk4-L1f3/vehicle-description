@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { toast } from 'react-toastify';
+import React, { useState } from 'react';
+import reserved from 'styles/image/reserved.png';
+import { DescriptionModal } from 'components/Modal/Modal';
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import {
   CardContainer,
   FavoriteBtn,
@@ -11,17 +15,18 @@ import {
   Price,
   InfoContainer,
   Button,
-} from "./CarItem.styled";
-import reserved from "styles/image/reserved.png";
-import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+} from './CarItem.styled';
 
-import { DescriptionModal } from "components/Modal/Modal";
-
-function CarCard({ car, isFavorite, onToggleFavorite, isCatalogPage }) {
+export const CarCard = ({
+  car,
+  isFavorite,
+  onToggleFavorite,
+  isCatalogPage,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
 
-  const addressParts = car.address.split(", ");
+  const addressParts = car.address.split(', ');
   const city = addressParts[0];
   const country = addressParts[1];
 
@@ -35,9 +40,12 @@ function CarCard({ car, isFavorite, onToggleFavorite, isCatalogPage }) {
 
   const handleToggleFavorite = () => {
     onToggleFavorite(car);
+    !isFavorite
+      ? toast.success('Car added to Favorites')
+      : toast.warning('Car Removed from Favorites');
   };
 
-  const handleImageError = (e) => {
+  const handleImageError = e => {
     setImageLoadError(true);
   };
 
@@ -56,11 +64,11 @@ function CarCard({ car, isFavorite, onToggleFavorite, isCatalogPage }) {
         <FavoriteBtn onClick={handleToggleFavorite}>
           {isFavorite ? (
             <MdOutlineFavorite
-              style={{ width: "23", height: "23", fill: "#3470FF" }}
+              style={{ width: '23', height: '23', fill: '#3470FF' }}
             />
           ) : (
             <MdOutlineFavoriteBorder
-              style={{ width: "23", height: "23", fill: "white" }}
+              style={{ width: '23', height: '23', fill: 'white' }}
             />
           )}
         </FavoriteBtn>
@@ -74,7 +82,7 @@ function CarCard({ car, isFavorite, onToggleFavorite, isCatalogPage }) {
         </TitleContainer>
         <InfoContainer>
           <p>
-            {city} | {country} | {car.rentalCompany} | {car.type} | {car.make} |{" "}
+            {city} | {country} | {car.rentalCompany} | {car.type} | {car.make} |{' '}
             {car.id}
           </p>
         </InfoContainer>
@@ -88,6 +96,4 @@ function CarCard({ car, isFavorite, onToggleFavorite, isCatalogPage }) {
       />
     </CardContainer>
   );
-}
-
-export default CarCard;
+};

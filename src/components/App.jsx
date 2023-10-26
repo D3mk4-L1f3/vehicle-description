@@ -1,14 +1,16 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import { Header } from "./Header/Header";
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { Header } from './Header/Header';
+import { ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const HomePage = lazy(() => import("pages/HomePage"));
-const CatalogPage = lazy(() => import("pages/CatalogPage"));
-const FavoritesPage = lazy(() => import("pages/FavoritesPage"));
+const HomePage = lazy(() => import('pages/HomePage'));
+const CatalogPage = lazy(() => import('pages/CatalogPage'));
+const FavoritesPage = lazy(() => import('pages/FavoritesPage'));
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Routes>
         <Route
@@ -37,7 +39,15 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="dark"
+        hideProgressBar={true}
+        transition={Zoom}
+        pauseOnHover
+      />
+    </>
   );
 }
 
