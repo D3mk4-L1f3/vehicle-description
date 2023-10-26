@@ -31,10 +31,6 @@ export const Filter = ({ cars, setFilteredCars }) => {
   const [mileageFrom, setMileageFrom] = useState('');
   const [mileageTo, setMileageTo] = useState('');
 
-  const showToast = (message, type) => {
-    toast[type](message);
-  };
-
   const search = () => {
     let filterCars = [...cars];
 
@@ -44,7 +40,7 @@ export const Filter = ({ cars, setFilteredCars }) => {
       mileageFrom === '' &&
       mileageTo === ''
     ) {
-      showToast('Fill all search params for better results!', 'warning');
+      toast.warning('Fill search params for better results!');
       setFilteredCars([]);
       return;
     }

@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Header } from './Header/Header';
+import { Loader } from './Loader/Loader';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -16,7 +17,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <HomePage />
             </Suspense>
           }
@@ -24,7 +25,7 @@ function App() {
         <Route
           path="/catalog"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <CatalogPage />
             </Suspense>
           }
@@ -32,7 +33,7 @@ function App() {
         <Route
           path="/favorites"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <FavoritesPage />
             </Suspense>
           }

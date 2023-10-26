@@ -16,7 +16,7 @@ export const ModalContainer = styled.div`
   max-width: 540px;
   max-height: 750px;
   z-index: 3;
-  overflow-y: auto;
+  overflow-y: scroll;
 `;
 
 export const Overlay = styled.div`
