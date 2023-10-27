@@ -47,10 +47,15 @@ team at default@default.com.
 
 Thank you for choosing UaRentCar - Your Trusted Travel Companion! 🚗
 
+## behind the scenes
+
 Some technical information:
+
 Checked by w3validator
 ![Checked by w3validator ](./assets/Walidator.png),
+
 PageSpeed on desktop
 ![PageSpeed on desktop](./assets/desktop%20pagespeed.png),
+
 PageSpeed on smaller platform starts from 320px of screen size
 ![PageSpeed on smaller platform starts from 320px of screen size](./assets/mobile%20pagespeed.png)
