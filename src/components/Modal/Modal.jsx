@@ -65,7 +65,7 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
 
   const handleImageError = e => {
     setImageLoadError(true);
-    toast.error('Downloaded images were crushed, try later :(');
+    toast.error('Downloading was crushed :( , try later to see car photo ');
   };
 
   return (
