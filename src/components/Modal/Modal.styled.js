@@ -33,8 +33,6 @@ export const Overlay = styled.div`
 `;
 
 export const AlterImage = styled.img`
-  /* width: 264px;
-  height: 268px; */
   object-fit: contain;
 `;
 

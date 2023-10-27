@@ -13,9 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter basename="/vehicle-description">
       <GlobalStyles />
-      {/* <React.StrictMode> */}
       <App />
-      {/* </React.StrictMode> */}
     </BrowserRouter>
   </Provider>
 );
