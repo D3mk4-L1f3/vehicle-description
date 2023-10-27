@@ -52,6 +52,10 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
   const [city, country] = addressParts;
 
   const rentalConditionsArray = rentalConditions.split('\n');
+  const accessoriesString = accessories ? accessories.join(' | ') : 'Unknown';
+  const functionalitiesString = functionalities
+    ? functionalities.join(' | ')
+    : 'Unknown';
 
   const ageRegex = /\d+/;
   const ageMatch = rentalConditions.match(ageRegex);
@@ -117,9 +121,9 @@ export const DescriptionModal = ({ isOpen, closeModal, car }) => {
           <DescriptContainer>
             <SecondaryTitle>Accessories and functionalities:</SecondaryTitle>
             <Text>
-              {accessories ?? 'Unknown'}
+              {accessoriesString}
               <Delimiter>|</Delimiter>
-              {functionalities ?? 'Unknown'}
+              {functionalitiesString}
             </Text>
           </DescriptContainer>
           <ConditionContainer>
