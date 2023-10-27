@@ -133,6 +133,11 @@ export const OdoTo = styled.input`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export const BtnForm = styled.button`
   padding: 11px 30px;
   background-color: var(--blue);

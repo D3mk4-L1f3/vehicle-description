@@ -8,6 +8,7 @@ import {
   OdoFrom,
   OdoTo,
   OdoInputContainer,
+  ButtonContainer,
 } from './Filter.styled';
 
 export const Filter = ({ cars, setFilteredCars }) => {
@@ -40,7 +41,6 @@ export const Filter = ({ cars, setFilteredCars }) => {
       mileageFrom === '' &&
       mileageTo === ''
     ) {
-      toast.warning('Fill search params for better results!');
       setFilteredCars([]);
       return;
     }
@@ -78,7 +78,6 @@ export const Filter = ({ cars, setFilteredCars }) => {
     setSelectedPrice(null);
     setMileageFrom('');
     setMileageTo('');
-    toast.info('Search params were reset, you can try again :)');
   };
 
   return (
@@ -120,13 +119,14 @@ export const Filter = ({ cars, setFilteredCars }) => {
           </OdoContainer>
         </div>
       </OdoInputContainer>
-
-      <BtnForm type="button" onClick={search}>
-        Search
-      </BtnForm>
-      <BtnForm type="button" onClick={reset}>
-        Reset
-      </BtnForm>
+      <ButtonContainer>
+        <BtnForm type="button" onClick={search}>
+          Search
+        </BtnForm>
+        <BtnForm type="button" onClick={reset}>
+          Reset
+        </BtnForm>
+      </ButtonContainer>
     </FilterContainer>
   );
 };

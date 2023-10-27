@@ -27,7 +27,7 @@ export const CarList = ({
           />
         ))}
       </CardContainer>
-      {shouldShowLoadMore && !isLoading && (
+      {shouldShowLoadMore && !isLoading && cars.length !== 35 && (
         <LoadMoreBtn type="button" onClick={handleLoadMoreClick}>
           Load more
         </LoadMoreBtn>
