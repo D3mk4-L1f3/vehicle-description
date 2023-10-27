@@ -47,6 +47,9 @@ export const CustomValSelect = styled(Select)`
     right: 5px;
     padding: 0;
     color: var(--red);
+
+    transform: ${props => (props.menuIsOpen ? 'rotate(180deg)' : 'none')};
+    display: ${props => (props.menuIsOpen ? 'block' : 'display')};
   }
 
   .my-cusom-select__indicator-separator {
@@ -131,11 +134,6 @@ export const OdoTo = styled.input`
   &::placeholder {
     text-align: right;
   }
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  gap: 10px;
 `;
 
 export const BtnForm = styled.button`

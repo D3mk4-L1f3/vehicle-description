@@ -8,12 +8,21 @@ import {
   OdoFrom,
   OdoTo,
   OdoInputContainer,
-  ButtonContainer,
 } from './Filter.styled';
+import { defaultArr } from './default';
 
 export const Filter = ({ cars, setFilteredCars }) => {
+  const [selectedMake, setSelectedMake] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState(null);
+  const [mileageFrom, setMileageFrom] = useState('');
+  const [mileageTo, setMileageTo] = useState('');
+  const [isMakeDropdownOpen, setIsMakeDropdownOpen] = useState(false);
+  const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
+
   const carsMakeArr = cars.map(car => car.make);
-  const makeOptions = [...new Set(carsMakeArr)].map(item => ({
+  const combinedArr = [...carsMakeArr, ...defaultArr];
+  const uniqueValuesSet = new Set(combinedArr);
+  const makeOptions = [...uniqueValuesSet].map(item => ({
     value: item,
     label: item,
   }));
@@ -27,10 +36,13 @@ export const Filter = ({ cars, setFilteredCars }) => {
     priceOptions.push({ value: i, label: `$${i}` });
   }
 
-  const [selectedMake, setSelectedMake] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState(null);
-  const [mileageFrom, setMileageFrom] = useState('');
-  const [mileageTo, setMileageTo] = useState('');
+  const reset = () => {
+    setFilteredCars([]);
+    setSelectedMake(null);
+    setSelectedPrice(null);
+    setMileageFrom('');
+    setMileageTo('');
+  };
 
   const search = () => {
     let filterCars = [...cars];
@@ -69,15 +81,10 @@ export const Filter = ({ cars, setFilteredCars }) => {
     if (filterCars.length === 0) {
       toast.error('No results according to your params :(');
     }
-    setFilteredCars(filterCars);
-  };
 
-  const reset = () => {
-    setFilteredCars([]);
-    setSelectedMake(null);
-    setSelectedPrice(null);
-    setMileageFrom('');
-    setMileageTo('');
+    reset();
+
+    setFilteredCars(filterCars);
   };
 
   return (
@@ -88,6 +95,9 @@ export const Filter = ({ cars, setFilteredCars }) => {
         onChange={selectedOption => setSelectedMake(selectedOption)}
         options={makeOptions}
         classNamePrefix="my-cusom-select"
+        onMenuOpen={() => setIsMakeDropdownOpen(true)}
+        onMenuClose={() => setIsMakeDropdownOpen(false)}
+        menuIsOpen={isMakeDropdownOpen}
         isSearchable={false}
       />
 
@@ -97,6 +107,9 @@ export const Filter = ({ cars, setFilteredCars }) => {
         onChange={selectedOption => setSelectedPrice(selectedOption)}
         options={priceOptions}
         classNamePrefix="my-cusom-select"
+        onMenuOpen={() => setIsPriceDropdownOpen(true)}
+        onMenuClose={() => setIsPriceDropdownOpen(false)}
+        menuIsOpen={isPriceDropdownOpen}
         isSearchable={false}
       />
       <OdoInputContainer>
@@ -119,14 +132,9 @@ export const Filter = ({ cars, setFilteredCars }) => {
           </OdoContainer>
         </div>
       </OdoInputContainer>
-      <ButtonContainer>
-        <BtnForm type="button" onClick={search}>
-          Search
-        </BtnForm>
-        <BtnForm type="button" onClick={reset}>
-          Reset
-        </BtnForm>
-      </ButtonContainer>
+      <BtnForm type="button" onClick={search}>
+        Search
+      </BtnForm>
     </FilterContainer>
   );
 };
